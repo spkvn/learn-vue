@@ -1,0 +1,39 @@
+<!DOCTYPE html> 
+<html>
+	<title>Vue Lesson 05</title>
+</html>
+<head>
+	<style>
+		.color-red{
+			background-color:red;
+		}
+		.color-blue{
+			background: blue;
+		}
+	</style>
+</head>
+<body>
+	<div id="root">
+		<button :title="title" :class="className">Hover over me.</button>
+
+		<!-- value is set based on the condition --> 
+		<button :class="{'color-blue': isLoading }" @click="setLoading">Click on me.</button>
+	</div>
+	<script src="../vue.js"></script>
+	<script>
+		var app = new Vue({
+			el : "#root",
+			data : {
+				title : "Now the title is set by JS.",
+				className : "color-red",
+				isLoading : false
+			}, 
+
+			methods:{
+				setLoading() {
+					this.isLoading = !this.isLoading;
+				}
+			},
+		});
+	</script>
+</body>
