@@ -1,18 +1,19 @@
 <!DOCTYPE html> 
 <html>
-	<title>Vue Lesson 01</title>
+	<title>Vue Lesson 03</title>
 </html>
 <body>
 	<div id="root">
-		<input type="text" id="input" v-model="message">
-		<p>Input Value: {{message}}</p>
+		<ul>
+			<li v-for="name in names">{{name}}</li>
+		</ul>
 	</div>
 	<script src="../vue.js"></script>
 	<script>
 		new Vue({
 			el : "#root",
 			data : {
-				message: "Hello World!"
+				names: ['Alison', 'Bob', 'Chris', 'Declan', 'Edith', 'Francis']
 			}
 		});
 	</script>
