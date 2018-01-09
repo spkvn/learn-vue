@@ -17,14 +17,18 @@
 			el : "#root",
 			data : {
 				names: ['Alison', 'Bob', 'Chris', 'Declan', 'Edith', 'Francis']
+			}, 
+
+			mounted(){
+				//nasty way of doing this 
+				document.querySelector("#nameButton").addEventListener('click', function(){
+					var name = document.querySelector("#newName");
+					app.names.push(name.value);
+					name.value = "";
+				});		
 			}
 		});
 
-		//nasty way of doing this 
-		document.querySelector("#nameButton").addEventListener('click', function(){
-			var name = document.querySelector("#newName");
-			app.names.push(name.value);
-			name.value = "";
-		});
+		
 	</script>
 </body>
