@@ -5,16 +5,26 @@
 <body>
 	<div id="root">
 		<ul>
-			<li v-for="name in names">{{name}}</li>
+			<li v-for="name in names" v-text="name"></li>
 		</ul>
+
+		<input type="text" id="newName">
+		<button id="nameButton">Add Name</button>
 	</div>
 	<script src="../vue.js"></script>
 	<script>
-		new Vue({
+		var app = new Vue({
 			el : "#root",
 			data : {
 				names: ['Alison', 'Bob', 'Chris', 'Declan', 'Edith', 'Francis']
 			}
+		});
+
+		//nasty way of doing this 
+		document.querySelector("#nameButton").addEventListener('click', function(){
+			var name = document.querySelector("#newName");
+			app.names.push(name.value);
+			name.value = "";
 		});
 	</script>
 </body>
