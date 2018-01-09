@@ -1,0 +1,35 @@
+<!DOCTYPE html> 
+<html>
+	<title>Vue Lesson 03</title>
+</html>
+<body>
+	<div id="root">
+		<ul>
+			<li v-for="name in names" v-text="name"></li>
+		</ul>
+
+		<input type="text" id="newName">
+		<button v-on:click="addName">Add Name</button>
+	</div>
+	<script src="../vue.js"></script>
+	<script>
+		var app = new Vue({
+			el : "#root",
+			data : {
+				names: ['Alison', 'Bob', 'Chris', 'Declan', 'Edith', 'Francis']
+			}, 
+
+			methods:{
+				addName() {
+					alert('adding name');
+				}
+			},
+
+			// mounted(){
+
+			// }
+		});
+
+		
+	</script>
+</body>
