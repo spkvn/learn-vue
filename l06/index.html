@@ -1,27 +1,44 @@
 <!DOCTYPE html> 
 <html>
 	<title>Vue Lesson 06</title>
+	<style>
+		#root{
+			font-family:helvetica;
+			height:100vh;
+			width:100%;
+			display:flex;
+			align-items:center;
+			justify-content:space-evenly;
+		}
+		.taskcontainer{
+			border:1px solid darkgray;
+			display:flex;
+			flex-direction:column;
+			justify-content:space-between;
+			padding:10px;
+		}
+	</style>
 </html>
 <body>
 	<div id="root">
-		
-		<p>
-			{{message}}
-		</p>
-		<p>
-			{{reversedMessage}}
-		</p>
-		
-
-		<h1>All Tasks</h1>
-		<ul>
-			<li v-for="task in tasks" v-text="task.desciption"></li>
-		</ul>
-
-		<h1>Incomplete Tasks</h1>
-		<ul>
-			<li v-for="task in incompleteTasks" v-text="task.desciption"></li>
-		</ul>
+		<div class="taskcontainer">
+			<h1>Incomplete Tasks</h1>
+			<ul>
+				<li v-for="task in incompleteTasks">
+					<input type="checkbox" class="checkbox" v-model="task.completed">
+					<label v-text="task.description"></label>
+				</li>
+			</ul>
+		</div>
+		<div class="taskcontainer">
+			<h1>Completed Tasks</h1>
+			<ul>
+				<li v-for="task in completedTasks">
+					<input type="checkbox" class="checkbox" v-model="task.completed">
+					<label v-text="task.description"></label>
+				</li>
+			</ul>
+		</div>
 	</div>
 	
 	<script src="../vue.js"></script>
@@ -31,12 +48,12 @@
 			data : {
 				message : "Hello, World!",
 				tasks:[
-					{desciption: "Go to gym", completed: false},
-					{desciption: "Go to store", completed: true},
-					{desciption: "Make Donation", completed: true},
-					{desciption: "Clear Inbox", completed: false},
-					{desciption: "Make Dinner", completed: true},
-					{desciption: "Vaccuum", completed: false},
+					{description: "Go to gym", completed: false},
+					{description: "Go to store", completed: true},
+					{description: "Make Donation", completed: true},
+					{description: "Clear Inbox", completed: false},
+					{description: "Make Dinner", completed: true},
+					{description: "Vaccuum", completed: false},
 				]
 			}, 
 
@@ -46,6 +63,9 @@
 				},
 				incompleteTasks(){
 					return this.tasks.filter(task => !task.completed);
+				},
+				completedTasks(){
+					return this.tasks.filter(task => task.completed);
 				}
 			}
 		});
