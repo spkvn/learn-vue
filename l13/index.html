@@ -6,9 +6,9 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css">
 </head>
 <body>
-	<h1>Reminder how to emit and handle events</h1>
+	<h1>Component communication w/ Event dispatching.</h1>
 	<div id="root" class="container">
-		<coupon @applied="couponApplied"></coupon>
+		<coupon></coupon>
 		<h1 class="title" v-if="applied">You applied code: {{couponCode}}</h1>
 	</div>
 	<script src="../vue.js"></script>
